@@ -36,7 +36,7 @@ impl ProjectConfig {
     fn load(project_name: &String, projects_dir: path::PathBuf) -> Self {
         let mut project_filepath = projects_dir;
         project_filepath.push(project_name);
-        let documentation_url = fs::read_to_string(project_filepath).unwrap();
+        let documentation_url = fs::read_to_string(project_filepath).expect("Entry for project not found");
 
         Self { documentation_url }
     }
